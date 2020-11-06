@@ -5,16 +5,26 @@ import Link from './Link'
 
 
 const FEED_QUERY = gql`
-{
-    feed{
-        links{
-            id
-            createdAt
-            url
-            description
+  {
+    feed {
+      links {
+        id
+        createdAt
+        url
+        description
+        postedBy {
+          id
+          name
         }
+        votes {
+          id
+          user {
+            id
+          }
+        }
+      }
     }
-}
+  }
 `
 
 class LinkList extends Component {
@@ -29,7 +39,9 @@ class LinkList extends Component {
 
                     return (
                         <div>
-                            {linksToRender.map(link=> <Link key={link.id} link={link}/>)}
+                            {linksToRender.map((link, index)=> (
+                            <Link key={link.id} link={link} index={index}/>
+                            ))}
                         </div>
                     )
                 }}

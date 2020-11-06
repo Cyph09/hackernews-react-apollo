@@ -9,7 +9,7 @@ import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { setContext } from 'apollo-link-context'
 import { BrowserRouter } from 'react-router-dom';
-import { AUTH_TOKEN } 
+import { AUTH_TOKEN } from './constants'
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000'
